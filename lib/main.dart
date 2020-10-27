@@ -1,117 +1,101 @@
 import 'package:flutter/material.dart';
+import 'package:property/theme/project_theme.dart';
+import 'package:property/ui/dashboard/country_screen.dart';
+import 'package:property/ui/dashboard/currency_screen.dart';
+import 'package:property/ui/dashboard/editProfile/edit_profile.dart';
+import 'package:property/ui/dashboard/favorites/favorites.dart';
+import 'package:property/ui/dashboard/favorites/favorites_empty.dart';
+import 'package:property/ui/dashboard/notification/ntification_screen.dart';
+import 'package:property/ui/dashboard/privacy_policy_screen.dart';
+import 'package:property/ui/dashboard/property_detail/property_detail1.dart';
+import 'package:property/ui/dashboard/property_detail/property_detail2.dart';
+import 'package:property/ui/dashboard/property_detail/property_detail3.dart';
+import 'package:property/ui/dashboard/search/city_detail.dart';
+import 'package:property/ui/dashboard/search/city_detail_result.dart';
+import 'package:property/ui/dashboard/search/map_screen.dart';
+import 'package:property/ui/dashboard/search/search_expand.dart';
+import 'package:property/ui/dashboard/search/search_first.dart';
+import 'package:property/ui/dashboard/search/search_result24.dart';
+import 'package:property/ui/dashboard/search/search_result25.dart';
+import 'package:property/ui/dashboard/settings/setting_screen1.dart';
+import 'package:property/ui/dashboard/settings/setting_screen2.dart';
+import 'package:property/ui/dashboard/social_media.dart';
+import 'package:property/ui/dashboard/support_faq.dart';
+import 'package:property/ui/dashboard/user_profile.dart';
+import 'package:property/ui/drawer/my_drawer.dart';
+import 'package:property/ui/login/Sign_up.dart';
+import 'package:property/ui/login/change_password.dart';
+import 'package:property/ui/login/enter_number.dart';
+import 'package:property/ui/login/forgot_password.dart';
+import 'package:property/ui/login/login1.dart';
+import 'package:property/ui/login/login2.dart';
+import 'package:property/ui/login/login3.dart';
+import 'package:property/ui/login/otp_screen.dart';
+import 'package:property/ui/login/sign_up_with.dart';
+import 'package:property/ui/sara.dart';
+import 'package:property/ui/start/onBoarding.dart';
+import 'package:property/ui/start/signup.dart';
+import 'package:property/utils/my_color.dart';
+
+AppThemeData theme = AppThemeData();
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
+        fontFamily: 'SFProText',
         primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        scaffoldBackgroundColor: MyColors.white,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      initialRoute: '/onBoarding',
+      routes: {
+        '/signUpWelcome': (context) => SignUpWelcome(),
+        '/onBoarding' : (context) => OnBoardingScreen(),
+        '/signUpScreen' : (context) => SignUpScreen(),
+        '/signUpWith' : (context) => SignUpWith(),
+        '/enterPhoneNumber' : (context) => EnterPhoneNumber(),
+        '/otpScreen' : (context) => OtpScreen(),
+        '/loginScreen1' : (context) => LoginScreen1(),
+        '/loginScreen2' : (context) => LoginScreen2(),
+        '/loginScreen3' : (context) => LoginScreen3(),
+        '/forgotPassword' : (context) => ForgotPassword(),
+        '/favoritesEmpty' : (context) => FavoritesEmpty(),
+        '/settingScreen1' : (context) => SettingScreen1(),
+        '/settingScreen2' : (context) => SettingScreen2(),
+        '/editProfileScreen' : (context) => EditProfileScreen(),
+        '/notificationScreen' : (context) => NotificationScreen(),
+        '/socialMediaScreen' : (context) => SocialMediaScreen(),
+        '/countryScreen' : (context) => CountryScreen(),
+        '/currencyScreen' : (context) => CurrencyScreen(),
+        '/privacyPolicyScreen' : (context) => PrivacyPolicyScreen(),
+        '/changePasswordScreen' : (context) => ChangePasswordScreen(),
+        '/supportFaqScreen' : (context) => SupportFaqScreen(),
+        '/drawerScreen' : (context) => DrawerScreen(),
+        '/searchFirstScreen' : (context) => SearchFirstScreen(),
+        '/cityDetailScreen' : (context) => CityDetailScreen(),
+        '/cityDetailResult' : (context) => CityDetailResult(),
+        '/searchResultList24' : (context) => SearchResultList24(),
+        '/searchResult25' : (context) => SearchResult25(),
+        '/propertyDetail1' : (context) => PropertyDetail1(),
+        '/propertyDetail2' : (context) => PropertyDetail2(),
+        '/propertyDetail3' : (context) => PropertyDetail3(),
+        '/userProfile' : (context) => UserProfile(),
+        '/favoritesScreen' : (context) => FavoritesScreen(),
+        '/searchExpanded2' : (context) => SearchExpanded2(),
+        '/mapScreen' : (context) => MapScreen(),
+        '/saraScreen' : (context) => SaraProject(),
+        // '/second': (context) => SecondScreen(),
+      },
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
-}
